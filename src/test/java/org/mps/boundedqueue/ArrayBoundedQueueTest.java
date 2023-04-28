@@ -8,6 +8,35 @@ import java.util.NoSuchElementException;
 
 import static org.assertj.core.api.Assertions.*;
 
+/*
+
+    === TESTS ===
+
+    * This class contains the tests for the ArrayBoundedQueue class.
+    * The tests are divided in nested classes, each one containing tests for a specific method.
+    * There are five tipe of tests, each with the following cases:
+
+    + constructor tests
+     - size less than 1 rises exception
+     - size greater than 0 creates a queue with all elements null
+    + put tests
+     - putting an element in a queue with size 0
+     - putting an element in a full queue rises exception
+     - putting null rises exception
+    + get tests
+     - getting an element from an empty queue rises exception
+     - getting an element from a queue with size 3
+    + first item tests
+     - first item field updates correctly when going from position n-1 to 0
+     - first item field updates correctly when is not going from position n-1 to 0
+    + iterator tests
+     - iterator always updates correctly, even when going from position n-1 to 0
+     - iterator throws exception when there are no more elements
+
+    === ===
+
+ */
+
 class ArrayBoundedQueueTest {
 
     ArrayBoundedQueue<Integer> queue;
@@ -190,7 +219,7 @@ class ArrayBoundedQueueTest {
     class iterator{
 
         @Test
-        @DisplayName("iterator always returns the correct elements")
+        @DisplayName("iterator always updates correctly, even when going from position n-1 to 0")
         void shouldIteratorReturnTheCorrectElements() {
 
             queue = new ArrayBoundedQueue<Integer>(5);
